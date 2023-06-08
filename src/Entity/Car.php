@@ -25,7 +25,7 @@ class Car
     #[ORM\Column]
     private ?float $cost = null;
 
-    #[ORM\ManyToOne(inversedBy: 'car')]
+    #[ORM\ManyToOne(inversedBy: 'car', fetch: "EAGER")]
     #[ORM\JoinColumn(nullable: false)]
     private ?CarCategory $carCategory = null;
 

@@ -11,15 +11,21 @@
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.15",
         "pelmered/fake-car": "^1.7",
+        "sensio/framework-extra-bundle": "^6.2",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",
         "symfony/flex": "^2",
+        "symfony/form": "6.3.*",
         "symfony/framework-bundle": "6.3.*",
         "symfony/runtime": "6.3.*",
+        "symfony/security-csrf": "6.3.*",
+        "symfony/twig-bundle": "6.3.*",
+        "symfony/validator": "6.3.*",
         "symfony/yaml": "6.3.*"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "symfony/debug-bundle": "6.3.*",
         "symfony/maker-bundle": "^1.49"
     },
     "config": {
