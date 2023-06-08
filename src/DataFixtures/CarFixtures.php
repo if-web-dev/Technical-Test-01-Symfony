@@ -15,6 +15,7 @@ class CarFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create();
+        $faker->addProvider(new \Faker\Provider\Fakecar($faker));
         $faker->seed(1234);
 
         for ($i = 0; $i < 20; $i++) {
@@ -24,7 +25,7 @@ class CarFixtures extends Fixture implements DependentFixtureInterface
 
             $car = (new Car())
                 ->setCarCategory($category)
-                ->setName($faker->word())
+                ->setName($faker->vehicle)
                 ->setNbDoors($faker->randomElement([3, 4, 5]))
                 ->setNbSeats($faker->randomElement([2, 5, 7]))
                 ->setCost($faker->numberBetween(10000, 50000));
