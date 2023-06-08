@@ -16,11 +16,12 @@ class CategoryFixtures extends Fixture
     {
       
         $faker = Factory::create();
+        $faker->addProvider(new \Faker\Provider\Fakecar($faker));
         $faker->seed(1234);
 
         for ($i = 0; $i < 5; $i++) {
             $category = (new CarCategory())
-                ->setName($faker->unique()->word);
+                ->setName($faker->unique()->vehicleType);
     
             $manager->persist($category);
     
