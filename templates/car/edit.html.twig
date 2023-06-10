@@ -1,13 +1,35 @@
-{% extends 'base.html.twig' %}
+{% extends 'default/base.html.twig' %}
 
 {% block title %}Edit Car{% endblock %}
 
 {% block body %}
-    <h1>Edit Car</h1>
+<!-- Masthead-->
+<header class="masthead bg-secondary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">EDIT A CAR</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Masthead Subheading-->
+        <p class="masthead-subheading font-weight-light mb-0">Here you can edit car informations</p>
+    </div>
+</header>
+<!-- Edit Section-->
+<section class="page-section portfolio bg-second" id="portfolio">
+    <div class="container">
+        <div class="text-center">
+            <a class="btn btn-outline-secondary text-uppercase btn-lg mx-auto" href="{{ path('app_car_index') }}">back to list</a>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-8">
+                {{ include('car/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+</section>
 
-    {{ include('car/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_car_index') }}">back to list</a>
-
-    {{ include('car/_delete_form.html.twig') }}
 {% endblock %}
