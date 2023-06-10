@@ -43,8 +43,7 @@ class CarType extends AbstractType
                 'attr' => [
                     'class' => 'btn btn-outline-success text-uppercase d-block btn-lg mx-auto mt-5',
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
