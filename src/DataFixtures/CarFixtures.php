@@ -18,8 +18,7 @@ class CarFixtures extends Fixture implements DependentFixtureInterface
         $faker->addProvider(new \Faker\Provider\Fakecar($faker));
         $faker->seed(1234);
 
-        for ($i = 0; $i < 20; $i++) {
-
+        for ($i = 0; $i < 100; $i++) {
 
             $category = $this->getReference(CategoryFixtures::CATEGORY_REFERENCE . rand(0, 4));
 

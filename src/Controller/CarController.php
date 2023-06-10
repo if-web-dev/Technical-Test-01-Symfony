@@ -14,10 +14,25 @@ use Symfony\Component\Routing\Annotation\Route;
 class CarController extends AbstractController
 {
     #[Route('/', name: 'app_car_index', methods: ['GET'])]
-    public function index(CarRepository $carRepository): Response
-    {
+    public function index(
+        CarRepository $carRepository,
+        Request $request
+    ): Response {
+        $currentPage = $request->get('page', 1);
+        $limit = $request->get('limit', 20);
+        $cars = $carRepository->findAll();
+        $carNumber = count($cars);
+        $totalPages = ceil($carNumber / $limit);
+        //$path = 'home';
+        $carList = $carRepository->findAllWithPagination($currentPage, $limit);
+
         return $this->render('car/index.html.twig', [
-            'cars' => $carRepository->findAll(),
+            'cars' => $cars,
+            'carsPaginated' => $carList,
+            'currentPage' => $currentPage,
+            'limit' => $limit,
+            //'path' => $path,
+            'totalPages' => $totalPages,
         ]);
     }
 
@@ -30,8 +45,10 @@ class CarController extends AbstractController
     }
 
     #[Route('/car/new', name: 'app_car_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, CarRepository $carRepository): Response
-    {
+    public function new(
+        Request $request,
+        CarRepository $carRepository
+    ): Response {
         $car = new Car();
         $form = $this->createForm(CarType::class, $car);
         $form->handleRequest($request);
@@ -57,8 +74,11 @@ class CarController extends AbstractController
     }
 
     #[Route('/car/{id}/edit', name: 'app_car_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Car $car, CarRepository $carRepository): Response
-    {
+    public function edit(
+        Request $request,
+        Car $car,
+        CarRepository $carRepository
+    ): Response {
         $form = $this->createForm(CarType::class, $car);
         $form->handleRequest($request);
 
@@ -75,9 +95,12 @@ class CarController extends AbstractController
     }
 
     #[Route('/car/{id}', name: 'app_car_delete', methods: ['POST'])]
-    public function delete(Request $request, Car $car, CarRepository $carRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$car->getId(), $request->request->get('_token'))) {
+    public function delete(
+        Request $request,
+        Car $car,
+        CarRepository $carRepository
+    ): Response {
+        if ($this->isCsrfTokenValid('delete' . $car->getId(), $request->request->get('_token'))) {
             $carRepository->remove($car, true);
         }
 

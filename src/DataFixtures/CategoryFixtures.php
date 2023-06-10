@@ -14,7 +14,6 @@ class CategoryFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-      
         $faker = Factory::create();
         $faker->addProvider(new \Faker\Provider\Fakecar($faker));
         $faker->seed(1234);
@@ -22,9 +21,9 @@ class CategoryFixtures extends Fixture
         for ($i = 0; $i < 5; $i++) {
             $category = (new CarCategory())
                 ->setName($faker->unique()->vehicleType);
-    
+
             $manager->persist($category);
-    
+
             $this->addReference(self::CATEGORY_REFERENCE . $i, $category);
         }
 
