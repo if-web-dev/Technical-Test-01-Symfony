@@ -12,6 +12,7 @@
         "doctrine/orm": "^2.15",
         "pelmered/fake-car": "^1.7",
         "sensio/framework-extra-bundle": "^6.2",
+        "symfony/asset": "6.3.*",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",
         "symfony/flex": "^2",

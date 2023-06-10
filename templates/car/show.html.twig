@@ -3,36 +3,61 @@
 {% block title %}Car{% endblock %}
 
 {% block body %}
-    <h1>Car</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ car.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ car.name }}</td>
-            </tr>
-            <tr>
-                <th>NbDoors</th>
-                <td>{{ car.nbDoors }}</td>
-            </tr>
-            <tr>
-                <th>NbSeats</th>
-                <td>{{ car.nbSeats }}</td>
-            </tr>
-            <tr>
-                <th>Cost</th>
-                <td>{{ car.cost }}</td>
-            </tr>
-        </tbody>
-    </table>
+<!-- Masthead-->
+<header class="masthead bg-secondary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">CAR DETAIL</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Masthead Subheading-->
+        <p class="masthead-subheading font-weight-light mb-0">Here you can see the car details</p>
+    </div>
+</header>
+<section class="page-section portfolio bg-second" id="portfolio">
+    <div class="container">
+        <div class="text-center mb-5">
+            <a class="btn btn-outline-secondary text-uppercase btn-lg mx-auto" href="{{ path('app_car_index') }}">back to list</a>
+        </div>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">{{ car.name }}</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <div class="row justify-content-center">
+        <!-- Car card -->
+            <div class="row justify-content-center align-items-center">
+                <div class="col-5">
+                    <img src="{{ asset("assets/img/image-"~ random(0, 40) ~".png") }}" width="100%" alt="">
+                </div>
+                <div class="col-5">
+                    <p class="card-text">
+                        <span class="fw-bold">Model: </span>{{ car.name }}
+                    </p>
+                    <p class="card-text">
+                        <span class="fw-bold">Description: </span>Some quick example text to build on the card title and make up the bulk of the
+                        card's content.
+                    </p>
+                    <p class="card-text">
+                        <span class="fw-bold">Doors number: </span>{{ car.nbDoors }}
+                    </p>
+                    <p class="card-text">
+                        <span class="fw-bold">Seats number: </span>{{ car.nbSeats }}
+                    </p>
+                    <p class="card-text">
+                        <span class="fw-bold">Cost: </span>{{ car.cost }} €
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <a href="{{ path('app_car_index') }}">back to list</a>
-
-    <a href="{{ path('app_car_edit', {'id': car.id}) }}">edit</a>
-
-    {{ include('car/_delete_form.html.twig') }}
 {% endblock %}

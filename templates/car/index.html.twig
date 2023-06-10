@@ -3,36 +3,60 @@
 {% block title %}Car index{% endblock %}
 
 {% block body %}
-    <h1>Car index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Category</th>
-                <th>Name</th>
-                <th>NbDoors</th>
-                <th>NbSeats</th>
-                <th>Cost</th>
-            </tr>
-        </thead>
-        <tbody>
+<!-- Masthead-->
+<header class="masthead bg-secondary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image-->
+        <img class="masthead-avatar mb-3" src="assets/img/image-1.png" alt="..." />
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">CAR DEALER</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Masthead Subheading-->
+        <p class="masthead-subheading font-weight-light mb-0">Purchase - Sale - Rental</p>
+    </div>
+</header>
+<!-- Car Section-->
+<section class="page-section portfolio bg-second" id="portfolio">
+    <div class="container">
+        <!-- Index Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Car index</h2>
+<!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+<!--Car items-->
+        <div class="row justify-content-center">
         {% for car in cars %}
-            <tr>
-                <td>{{ car.id }}</td>
-                <td>{{ car.carCategory.name }}</td>
-                <td>{{ car.name }}</td>
-                <td>{{ car.nbDoors }}</td>
-                <td>{{ car.nbSeats }}</td>
-                <td>{{ car.cost }}</td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
+            <div class="col-md-6 mb-5">
+                <div class="portfolio-item mx-auto bg-white p-4 shadow-sm ">
+                    <a href="{{ path("app_car_show", { 'id': car.id }) }}" class="text-decoration-none portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content fw-bold text-center text-white">
+                            SEE MORE
+                        </div>
+                    </a>
+                    <div class="row align-items-center">
+                        <div class="col-6 car-vignette text-secondary">
+                            <p class="fw-bold">{{ car.name }}</p>
+                            <p class="fw-bold">{{ car.carCategory.name }}</p>
+                            <p class="fw-bold">{{ car.cost }}€</p>
+                        </div>
+                        <div class="col-6">
+                            <img src="assets/img/image-{{ random(1, 40) }}.png" width="100%" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
+        </div>
+    </div>
+</section>
 
-    <a href="{{ path('app_car_new') }}">Create new</a>
 {% endblock %}

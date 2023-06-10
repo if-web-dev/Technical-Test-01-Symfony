@@ -104,6 +104,22 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.bg-first {
+  background-color: var(--bs-gray-600)!important;
+}
+
+.bg-second {
+  background-color: var(--bs-gray-300)!important;
+}
+
+#DataTables_Table_0_filter {
+  text-align: right!important;
+}
+
+.car-vignette {
+  font-family: 'Roboto', sans-serif;
+}
+
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -10968,7 +10984,7 @@ html {
 }
 
 .masthead {
-  padding-top: calc(6rem + 74px);
+  padding-top: calc(2rem + 74px);
   padding-bottom: 6rem;
 }
 .masthead .masthead-heading {
@@ -10984,7 +11000,7 @@ html {
 
 @media (min-width: 992px) {
   .masthead {
-    padding-top: calc(6rem + 104px);
+    padding-top: calc(2rem + 104px);
     padding-bottom: 6rem;
   }
   .masthead .masthead-heading {
@@ -11009,7 +11025,7 @@ html {
   left: 0;
   transition: all 0.2s ease-in-out;
   opacity: 0;
-  background-color: rgba(26, 188, 156, 0.9);
+  background-color: rgba(108, 117, 125, 0.8);
 }
 .portfolio .portfolio-item .portfolio-item-caption:hover {
   opacity: 1;
