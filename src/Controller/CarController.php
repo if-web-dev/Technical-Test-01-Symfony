@@ -4,34 +4,36 @@ namespace App\Controller;
 
 use App\Entity\Car;
 use App\Form\CarType;
+use App\Service\CallApiService;
 use App\Repository\CarRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 class CarController extends AbstractController
 {
+   
+
     #[Route('/', name: 'app_car_index', methods: ['GET'])]
     public function index(
         CarRepository $carRepository,
-        Request $request
+        Request $request,
     ): Response {
+
         $currentPage = $request->get('page', 1);
         $limit = $request->get('limit', 20);
         $cars = $carRepository->findAll();
         $carNumber = count($cars);
         $totalPages = ceil($carNumber / $limit);
-        //$path = 'home';
         $carList = $carRepository->findAllWithPagination($currentPage, $limit);
-
+        
         return $this->render('car/index.html.twig', [
             'cars' => $cars,
             'carsPaginated' => $carList,
             'currentPage' => $currentPage,
             'limit' => $limit,
-            //'path' => $path,
             'totalPages' => $totalPages,
         ]);
     }
