@@ -41,12 +41,10 @@ class CarRepository extends ServiceEntityRepository
 
     public function findAllWithPagination(int $page, int $limit = 20): array
     {
-
         $qb = $this->createQueryBuilder('b')
         ->setFirstResult(($page - 1) * abs($limit))
         ->setMaxResults(abs($limit));
         return $qb->getQuery()->getResult();
-
     }
 
 //    /**
