@@ -6,3 +6,6 @@ controllers:
 fetch_weather:
     path: /fetch-weather
     controller: App\Controller\WeatherController::getWeatherData
+search:
+    path: /search
+    controller: App\Controller\SearchController::search

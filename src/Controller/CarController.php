@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Car;
 use App\Form\CarType;
+use App\Form\SearchFormType;
 use App\Service\CallApiService;
 use App\Repository\CarRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,21 +17,26 @@ class CarController extends AbstractController
 {
    
 
-    #[Route('/', name: 'app_car_index', methods: ['GET'])]
+    #[Route('/', name: 'app_car_index', methods: ['GET', 'POST'])]
     public function index(
         CarRepository $carRepository,
         Request $request,
     ): Response {
 
+        $searchForm = $this->createForm(SearchFormType::class);
+        $searchForm->handleRequest($request);
+
         $currentPage = $request->get('page', 1);
         $limit = $request->get('limit', 20);
-        $cars = $carRepository->findAll();
-        $carNumber = count($cars);
+
+        $carNumber = count($carRepository->findAll());
         $totalPages = ceil($carNumber / $limit);
-        $carList = $carRepository->findAllWithPagination($currentPage, $limit);
+        $carList = $carRepository->searchCarByNameWithPagination($currentPage, $limit);
+
+        $searchForm = $this->createForm(SearchFormType::class);
         
         return $this->render('car/index.html.twig', [
-            'cars' => $cars,
+            'searchForm' => $searchForm->createView(),
             'carsPaginated' => $carList,
             'currentPage' => $currentPage,
             'limit' => $limit,

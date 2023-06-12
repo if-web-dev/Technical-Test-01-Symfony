@@ -2,10 +2,6 @@
 
 {% block title %}Car index{% endblock %}
 
-{% block javascripts %}
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/datatables.min.js"></script>
-{% endblock %}
-
 {% block body %}
 <!-- Masthead-->
 <header class="masthead bg-secondary text-white text-center">
@@ -93,4 +89,8 @@
     </div>
 </section>
 
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/datatables.min.js"></script>
 {% endblock %}

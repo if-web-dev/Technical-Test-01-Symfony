@@ -42,25 +42,38 @@ class CarRepository extends ServiceEntityRepository
     public function findAllWithPagination(int $page, int $limit = 20): array
     {
         $qb = $this->createQueryBuilder('b')
-        ->setFirstResult(($page - 1) * abs($limit))
-        ->setMaxResults(abs($limit));
+            ->setFirstResult(($page - 1) * abs($limit))
+            ->setMaxResults(abs($limit));
         return $qb->getQuery()->getResult();
     }
 
-//    /**
-//     * @return Car[] Returns an array of Car objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   
+    public function searchCarByNameWithPagination(int $page, int $limit = 20, $value = null, ): array
+    {
+        if($value) {
+            $qb = $this->createQueryBuilder('c')
+                ->where('c.name LIKE :val')
+                ->setParameter('val', '%'.$value.'%')
+                //->orderBy('c.id', 'ASC')
+                ->setFirstResult(($page - 1) * abs($limit))
+                ->setMaxResults(abs($limit));
+            return $qb->getQuery()->getResult();
+        }
+
+        $qb = $this->createQueryBuilder('b')
+            ->setFirstResult(($page - 1) * abs($limit))
+            ->setMaxResults(abs($limit));
+        return $qb->getQuery()->getResult();
+    }
+
+    public function countCarsMatchedByName($value)
+    {
+        $qb = $this->createQueryBuilder('c')
+        ->select('COUNT(c.id)') // Use COUNT() to count the rows
+        ->where('c.name LIKE :val')
+        ->setParameter('val', '%'.$value.'%');
+        return $qb->getQuery()->getSingleScalarResult();
+    }
 
 //    public function findOneBySomeField($value): ?Car
 //    {

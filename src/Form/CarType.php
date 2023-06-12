@@ -19,6 +19,7 @@ class CarType extends AbstractType
             ->add('name')
             ->add('nbDoors', ChoiceType::class, [
                 'label' => 'Number of doors',
+                'required' => true,
                 'choices'  => [
                     '3' => 3,
                     '5' => 5,
@@ -26,6 +27,7 @@ class CarType extends AbstractType
             ])
             ->add('nbSeats', ChoiceType::class, [
                 'label' => 'Number of seats',
+                'required' => true,
                 'choices'  => [
                     '2' => 3,
                     '5' => 5,
@@ -35,6 +37,7 @@ class CarType extends AbstractType
             ->add('cost')
             ->add('carCategory', EntityType::class, [
                 'label' => 'Category',
+                'required' => true,
                 'class' => carCategory::class,
                 'choice_label' => 'name',
             ])

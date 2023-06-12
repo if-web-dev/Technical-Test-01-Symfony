@@ -26,7 +26,7 @@
     <div class="container">
         <!-- API weather-->
         <div id="weather-container" class="h4 mb-5 text-secondary d-flex justify-content-center align-items-center">
-            chargement de la température...
+            Loading temperature...
         </div>
         <!-- Index Section Heading-->
         <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Car index</h2>
@@ -35,6 +35,12 @@
             <div class="divider-custom-line"></div>
             <div class="divider-custom-icon"><i class="fas fa-car"></i></div>
             <div class="divider-custom-line"></div>
+        </div>
+        <!--SearchBar-->
+        <div class="row justify-content-center my-5">
+            <div class="col-6">
+                {{ include('car/_search_form.html.twig') }}
+            </div>
         </div>
         <!--Car items-->
         <div class="row justify-content-center">
@@ -59,43 +65,11 @@
                     </div>
                 </div>
             </div>
+            {% else %}
+            <p class="text-center h5">There is no result...</p>
             {% endfor %}
         </div>
-
-        <!-- Pagination -->
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center mt-5">
-                <!-- Previous button -->
-                {% if currentPage > 1 %}
-                <li class="page-item">
-                    <a class="page-link" href="{{ path( "app_car_index", {page: currentPage - 1}) }}" role="button"
-                        aria-pressed="true">Previous</a>
-                </li>
-                {% else %}
-                <li class="page-item disabled">
-                    <a class="page-link" href="{{ path( "app_car_index", {page: currentPage - 1}) }}" tabindex="-1"
-                        role="button" aria-disabled="true">Previous</a>
-                </li>
-                {% endif %}
-
-                <!-- Page button -->
-                {% for i in 1.. totalPages %}
-                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-                {% endfor %}
-
-                <!-- Next button -->
-                {% if currentPage < totalPages %} <li class="page-item">
-                    <a class="page-link" href="{{ path( "app_car_index", {page: currentPage + 1}) }}" role="button"
-                        aria-pressed="true">Next</a>
-                    </li>
-                {% else %}
-                    <li class="page-item disabled">
-                        <a class="page-link" href="{{ path( "app_car_index", {page: currentPage + 1}) }}" tabindex="-1"
-                            role="button" aria-disabled="true">Next</a>
-                    </li>
-                {% endif %}
-            </ul>
-        </nav>
+        {{ include('car/_pagination.html.twig') }}
     </div>
 </section>
 
@@ -112,11 +86,11 @@
                 dataType: "json",
                 success: function(response) {
                     // Update container contents with temperature
-                    $("#weather-container").html("<i class='fas fa-temperature-high me-2'></i> Température actuelle à Lyon : " + response.temperature + "°C");
+                    $("#weather-container").html("<i class='fas fa-temperature-high me-2'></i> Current temperature in Lyon : " + response.temperature + "°C");
                 },
                 error: function() {
                     // Handle errors if there is a problem with the AJAX request
-                    $("#weather-container").html("Impossible de récupérer la température.");
+                    $("#weather-container").html("Unable to retrieve temperature.");
                 }
             });
         }
