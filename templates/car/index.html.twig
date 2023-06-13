@@ -10,11 +10,11 @@
         <!-- Masthead Avatar Image-->
         <img class="masthead-avatar mb-3" src="assets/img/image-1.png" alt="..." />
         <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0">CAR DEALER</h1>
+        <h1 class="fw-bold display-5 display-sm-3 masthead-heading text-uppercase mb-0">CAR DEALER</h1>
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-icon"><i class="fa-solid fa-star"></i></div>
             <div class="divider-custom-line"></div>
         </div>
         <!-- Masthead Subheading-->
@@ -24,29 +24,40 @@
 <!-- Car Section-->
 <section class="page-section portfolio bg-second" id="portfolio">
     <div class="container">
+        <!-- API weather-->
+        <div id="weather-container" class="fs-5 fw-bold mb-5 text-secondary d-flex justify-content-center align-items-center">
+            Loading temperature...
+        </div>
         <!-- Index Section Heading-->
         <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Car index</h2>
-<!-- Icon Divider-->
+        <!-- Icon Divider-->
         <div class="divider-custom">
             <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-icon"><i class="fas fa-car"></i></div>
             <div class="divider-custom-line"></div>
         </div>
-<!--Car items-->
+        <!--SearchBar-->
+        <div class="row justify-content-center my-5">
+            <div class="col-10 col-sm-8 col-md-6">
+                {{ include('car/_search_form.html.twig') }}
+            </div>
+        </div>
+        <!--Car items-->
         <div class="row justify-content-center">
-        {% for car in cars %}
+            {% for car in cars %}
             <div class="col-md-6 mb-5">
                 <div class="portfolio-item mx-auto bg-white p-4 shadow-sm ">
-                    <a href="{{ path("app_car_show", { 'id': car.id }) }}" class="text-decoration-none portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                    <a href="{{ path("app_car_show", { 'id' : car.id }) }}"
+                        class="text-decoration-none portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                         <div class="portfolio-item-caption-content fw-bold text-center text-white">
                             SEE MORE
                         </div>
                     </a>
                     <div class="row align-items-center">
                         <div class="col-6 car-vignette text-secondary">
-                            <p class="fw-bold">{{ car.name }}</p>
-                            <p class="fw-bold">{{ car.carCategory.name }}</p>
-                            <p class="fw-bold">{{ car.cost }}€</p>
+                            <p class="fw-bold">{{ car.name |capitalize }}</p>
+                            <p class="fw-bold">{{ car.carCategory.name |capitalize }}</p>
+                            <p class="fw-bold">{{ car.cost | number_format(0, ',', ' ' ) }} €</p>
                         </div>
                         <div class="col-6">
                             <img src="assets/img/image-{{ random(1, 40) }}.png" width="100%" alt="">
@@ -54,7 +65,9 @@
                     </div>
                 </div>
             </div>
-        {% endfor %}
+            {% else %}
+            <p class="text-center h5">There is no result...</p>
+            {% endfor %}
         </div>
     </div>
 </section>

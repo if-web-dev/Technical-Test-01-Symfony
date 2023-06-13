@@ -10,13 +10,16 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class CarType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
+            ->add('name', TextType::class, [
+                'label' => 'Name',
+            ])
             ->add('nbDoors', ChoiceType::class, [
                 'label' => 'Number of doors',
                 'choices'  => [
@@ -43,8 +46,7 @@ class CarType extends AbstractType
                 'attr' => [
                     'class' => 'btn btn-outline-success text-uppercase d-block btn-lg mx-auto mt-5',
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

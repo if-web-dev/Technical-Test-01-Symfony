@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Car;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use App\Model\SearchData;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Car>
@@ -39,28 +40,30 @@ class CarRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Car[] Returns an array of Car objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+     /**
+     * Recupere les cars en lien avec une recherche
+     * @return Car[]
+     */
+    public function findSearch(SearchData $data): array
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->select('c', 'k')
+            ->join('c.carCategory', 'k');
 
-//    public function findOneBySomeField($value): ?Car
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        if(!empty($data->q)){
+            $qb = $qb
+                ->andWhere('c.name LIKE :q')
+                ->setParameter('q', "%{$data->q}%");
+        }
+
+        if(!empty($data->carCategory)){
+            $qb = $qb
+            ->andWhere('k.name = :category')
+            ->setParameter('category', $data->carCategory);
+        }
+         
+        
+        return $qb->getQuery()->getResult();
+
+    }
 }
