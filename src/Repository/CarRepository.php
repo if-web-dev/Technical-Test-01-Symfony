@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\Car;
 use App\Model\SearchData;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\PaginatorInterface;
+use Knp\Component\Pager\Pagination\PaginationInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
@@ -17,9 +19,15 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
  */
 class CarRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    /**
+     * @var PaginatorInterface
+     */
+    private $paginator;
+
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Car::class);
+        $this->paginator = $paginator;
     }
 
     public function save(Car $entity, bool $flush = false): void
@@ -40,11 +48,11 @@ class CarRepository extends ServiceEntityRepository
         }
     }
 
-     /**
+    /**
      * Recupere les cars en lien avec une recherche
-     * @return Car[]
+     * @return PaginationInterface
      */
-    public function findSearch(SearchData $data): array
+    public function findSearch(SearchData $data): PaginationInterface
     {
         $qb = $this->createQueryBuilder('c')
             ->select('c', 'k')
@@ -63,7 +71,11 @@ class CarRepository extends ServiceEntityRepository
         }
          
         
-        return $qb->getQuery()->getResult();
-
+        $qb = $qb->getQuery();
+        return $this->paginator->paginate(
+            $qb,
+            $data->page,
+            20
+        );
     }
 }

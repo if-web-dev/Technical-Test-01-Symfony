@@ -10,6 +10,7 @@
         "doctrine/doctrine-bundle": "^2.10",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.15",
+        "knplabs/knp-paginator-bundle": "^6.2",
         "pelmered/fake-car": "^1.7",
         "sensio/framework-extra-bundle": "^6.2",
         "symfony/asset": "6.3.*",

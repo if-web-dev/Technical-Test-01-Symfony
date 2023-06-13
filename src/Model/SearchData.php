@@ -9,6 +9,11 @@ class SearchData
      */
     public ?string $q = '';
 
+    /**
+     * @var int
+     */
+    public ?int $page = 1;
+
      /**
      * @var string
      */
