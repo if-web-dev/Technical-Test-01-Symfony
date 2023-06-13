@@ -1,0 +1,16 @@
+{{ form_start(searchForm)}}
+<div class="col">
+    {{ form_row(searchForm.q) }}
+</div>
+<div class="row">
+    <div class="col-8 col-md-9 col-lg-7">
+        {{ form_row(searchForm.carCategory) }}
+    </div>
+    <div class="col-4 col-md-3 col-lg-5 d-flex">
+        <button type="submit" class="btn btn-secondary w-100 mb-3 ms-auto d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-magnifying-glass me-2"></i>
+            <span class="d-none d-lg-inline align-middle">Search</span>
+        </button>
+    </div>
+</div>
+{{ form_end(searchForm)}}

@@ -72,4 +72,9 @@ class CarCategory
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->getName(); // Return a property that represents the car object as a string
+    }
 }
