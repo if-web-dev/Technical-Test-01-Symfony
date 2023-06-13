@@ -21,6 +21,7 @@ class CarController extends AbstractController
         Request $request
     ): Response {
         $data = new SearchData();
+        $data->page = $request->get('page', 1);
 
         $searchForm = $this->createForm(SearchFormType::class, $data);
         $searchForm->handleRequest($request);
