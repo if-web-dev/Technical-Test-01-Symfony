@@ -74,3 +74,32 @@
 </section>
 
 {% endblock %}
+
+{% block javascript %}
+<script>
+    $(document).ready(function() {
+        // Function to retrieve the temperature via an AJAX request
+        function getTemperature() {
+            $.ajax({
+                url: "{{ path('fetch_weather') }}", // Data weather Controller route
+                method: "GET",
+                dataType: "json",
+                success: function(response) {
+                    // Update container contents with temperature
+                    $("#weather-container").html("<i class='fas fa-temperature-high me-2'></i> Current temperature in Lyon : " + response.temperature + "°C");
+                },
+                error: function() {
+                    // Handle errors if there is a problem with the AJAX request
+                    $("#weather-container").html("Unable to retrieve temperature.");
+                }
+            });
+        }
+    
+        // Call the function to get the temperature when the page loads
+        getTemperature();
+    
+        // Refresh the temperature every hour
+        setInterval(getTemperature, 3600000);
+    });
+</script>
+{% endblock %}
