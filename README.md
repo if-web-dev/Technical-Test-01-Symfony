@@ -2,7 +2,7 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1ccbfe99d0844347a24a4eabc1313dec)](https://www.codacy.com/gh/if-web-dev/Openclassrooms-Project-06-Snowtricks/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=if-web-dev/Openclassrooms-Project-06-Snowtricks&amp;utm_campaign=Badge_Grade)
 
-We present the first technical test with PHP/Symfony; Create a car dealership Symfony application. You can see the [Instructions here].
+We present the first technical test with PHP/Symfony; Create a car dealership Symfony application. You can see the [Instructions here](https://github.com/if-web-dev/Technical-Test-01-Symfony/blob/main/instructions.pdf).
 
 ## To start
 
