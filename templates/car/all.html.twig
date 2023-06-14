@@ -2,8 +2,8 @@
 
 {% block title %}Car index{% endblock %}
 
-{% block javascripts %}
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/datatables.min.js"></script>
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/datatables.min.css"/>
 {% endblock %}
 
 {% block body %}
@@ -35,7 +35,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="dataTable table table-bordered" width="100%" cellspacing="0">
+                    <table id="myTable" class="datatable table table-bordered" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th class="text-center">Category</th>
@@ -88,4 +88,11 @@
     </div>
 </section>
 
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/datatables.min.js"></script>
+<script>
+    let table = new DataTable('#myTable');
+</script>
 {% endblock %}
