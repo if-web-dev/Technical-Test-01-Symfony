@@ -7,11 +7,6 @@
 // Scripts
 // 
 
-//datatables library
-$(document).ready(function () {
-    $('.dataTable').DataTable();
-});
-
 window.addEventListener('DOMContentLoaded', event => {
 
     // Navbar shrink function
