@@ -1,0 +1,41 @@
+pwa:
+    image_processor: 'pwa.image_processor.imagick'
+    background_color: "#dee2e6"
+    theme_color: "#212529"
+    name: 'Car Dealer'
+    short_name: 'car-dealer'
+    description: 'A car dealer application. Purchase - Sale - Rental'
+    orientation: "any"
+    display: "standalone"
+    scope: "/"
+    display_override: ['fullscreen', 'minimal-ui', 'window-controls-overlay']
+    id: "/"
+    start_url: ""
+    icons:
+        - src: "%kernel.project_dir%/assets/images/logo.png"
+          sizes: [48, 57, 60, 72, 76, 96, 114, 128, 144, 152, 180, 192, 256, 384, 512, 1024]
+    screenshots:
+        - src: "%kernel.project_dir%/assets/images/homepage-1.png"
+          label: "View of the application home page"
+        - src: "%kernel.project_dir%/assets/images/homepage-2.png"
+          label: "View of the application home page"
+        - src: "%kernel.project_dir%/assets/images/car-detail-1.png"
+          label: "View of the car detail page"
+        - src: "%kernel.project_dir%/assets/images/car-detail-2.png"
+          label: "View of the car detail page"
+    categories: ['utility', 'productivity']
+    shortcuts:
+        - name: "Add a car"
+          short_name: "add-car"
+          description: "Add a car to the catalog"
+          url: "/car/new"
+          icons:
+              - src: "%kernel.project_dir%/assets/images/plus.png"
+                sizes: [48, 57, 60, 72, 76, 96, 114, 128, 144, 152, 180, 192, 256, 384, 512, 1024]
+        - name: "Manage cars"
+          short_name: "manage-cars"
+          description: "Manage cars in the catalog"
+          url: "/car"
+          icons:
+              - src: "%kernel.project_dir%/assets/images/manage.png"
+                sizes: [48, 57, 60, 72, 76, 96, 114, 128, 144, 152, 180, 192, 256, 384, 512, 1024]
