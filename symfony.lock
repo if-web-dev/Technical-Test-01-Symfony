@@ -62,6 +62,9 @@
             "./config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "spomky-labs/phpwa": {
+        "version": "1.0.x-dev"
+    },
     "symfony/console": {
         "version": "6.3",
         "recipe": {
