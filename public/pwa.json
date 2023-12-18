@@ -1,0 +1,311 @@
+{
+    "background_color": "#dee2e6",
+    "theme_color": "#212529",
+    "name": "Car Dealer",
+    "short_name": "car-dealer",
+    "description": "A car dealer application. Purchase - Sale - Rental",
+    "orientation": "any",
+    "display": "standalone",
+    "scope": "/",
+    "display_override": [
+        "fullscreen",
+        "minimal-ui",
+        "window-controls-overlay"
+    ],
+    "id": "/",
+    "start_url": "",
+    "icons": [
+        {
+            "src": "/pwa/icon--48x48-8f5de1bc.png",
+            "type": "image/png",
+            "sizes": "48x48"
+        },
+        {
+            "src": "/pwa/icon--57x57-b0245e21.png",
+            "type": "image/png",
+            "sizes": "57x57"
+        },
+        {
+            "src": "/pwa/icon--60x60-d1bb1e9c.png",
+            "type": "image/png",
+            "sizes": "60x60"
+        },
+        {
+            "src": "/pwa/icon--72x72-3f22e8ec.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src": "/pwa/icon--76x76-395091fc.png",
+            "type": "image/png",
+            "sizes": "76x76"
+        },
+        {
+            "src": "/pwa/icon--96x96-eae35453.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "/pwa/icon--114x114-fdbf3a19.png",
+            "type": "image/png",
+            "sizes": "114x114"
+        },
+        {
+            "src": "/pwa/icon--128x128-fbcc6b7b.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "/pwa/icon--144x144-d7e77690.png",
+            "type": "image/png",
+            "sizes": "144x144"
+        },
+        {
+            "src": "/pwa/icon--152x152-dd661f6c.png",
+            "type": "image/png",
+            "sizes": "152x152"
+        },
+        {
+            "src": "/pwa/icon--180x180-613ad04b.png",
+            "type": "image/png",
+            "sizes": "180x180"
+        },
+        {
+            "src": "/pwa/icon--192x192-31b1f6b6.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/pwa/icon--256x256-fffbdd02.png",
+            "type": "image/png",
+            "sizes": "256x256"
+        },
+        {
+            "src": "/pwa/icon--384x384-bf13abe6.png",
+            "type": "image/png",
+            "sizes": "384x384"
+        },
+        {
+            "src": "/pwa/icon--512x512-21cb7387.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "/pwa/icon--1024x1024-c3484989.png",
+            "type": "image/png",
+            "sizes": "1024x1024"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/pwa/screenshot-wide-1681x996-2893e1a3.png",
+            "type": "image/png",
+            "sizes": "1681x996",
+            "form_factor": "wide",
+            "label": "View of the application home page"
+        },
+        {
+            "src": "/pwa/screenshot-narrow-549x923-087869e6.png",
+            "type": "image/png",
+            "sizes": "549x923",
+            "form_factor": "narrow",
+            "label": "View of the application home page"
+        },
+        {
+            "src": "/pwa/screenshot-narrow-545x1013-a5789ac2.png",
+            "type": "image/png",
+            "sizes": "545x1013",
+            "form_factor": "narrow",
+            "label": "View of the car detail page"
+        },
+        {
+            "src": "/pwa/screenshot-wide-1688x1278-574b7690.png",
+            "type": "image/png",
+            "sizes": "1688x1278",
+            "form_factor": "wide",
+            "label": "View of the car detail page"
+        }
+    ],
+    "categories": [
+        "utility",
+        "productivity"
+    ],
+    "shortcuts": [
+        {
+            "name": "Add a car",
+            "short_name": "add-car",
+            "description": "Add a car to the catalog",
+            "url": "/car/new",
+            "icons": [
+                {
+                    "src": "/pwa/shortcut-icon--48x48-1d5e8c71.png",
+                    "type": "image/png",
+                    "sizes": "48x48"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--57x57-387b43ba.png",
+                    "type": "image/png",
+                    "sizes": "57x57"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--60x60-2c49f4eb.png",
+                    "type": "image/png",
+                    "sizes": "60x60"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--72x72-6249786f.png",
+                    "type": "image/png",
+                    "sizes": "72x72"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--76x76-efb8b946.png",
+                    "type": "image/png",
+                    "sizes": "76x76"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--96x96-0d2b0270.png",
+                    "type": "image/png",
+                    "sizes": "96x96"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--114x114-d1614622.png",
+                    "type": "image/png",
+                    "sizes": "114x114"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--128x128-70667b7f.png",
+                    "type": "image/png",
+                    "sizes": "128x128"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--144x144-ee00cb08.png",
+                    "type": "image/png",
+                    "sizes": "144x144"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--152x152-905366cf.png",
+                    "type": "image/png",
+                    "sizes": "152x152"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--180x180-590318d5.png",
+                    "type": "image/png",
+                    "sizes": "180x180"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--192x192-88c35149.png",
+                    "type": "image/png",
+                    "sizes": "192x192"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--256x256-7bd15436.png",
+                    "type": "image/png",
+                    "sizes": "256x256"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--384x384-cf644de6.png",
+                    "type": "image/png",
+                    "sizes": "384x384"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--512x512-e51c4af3.png",
+                    "type": "image/png",
+                    "sizes": "512x512"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--1024x1024-d01dd8a2.png",
+                    "type": "image/png",
+                    "sizes": "1024x1024"
+                }
+            ]
+        },
+        {
+            "name": "Manage cars",
+            "short_name": "manage-cars",
+            "description": "Manage cars in the catalog",
+            "url": "/car",
+            "icons": [
+                {
+                    "src": "/pwa/shortcut-icon--48x48-fee2e733.png",
+                    "type": "image/png",
+                    "sizes": "48x48"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--57x57-46f47726.png",
+                    "type": "image/png",
+                    "sizes": "57x57"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--60x60-c7c1e3f5.png",
+                    "type": "image/png",
+                    "sizes": "60x60"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--72x72-ba5b6e2f.png",
+                    "type": "image/png",
+                    "sizes": "72x72"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--76x76-31ca508a.png",
+                    "type": "image/png",
+                    "sizes": "76x76"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--96x96-a3dd303a.png",
+                    "type": "image/png",
+                    "sizes": "96x96"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--114x114-f3f0fc7a.png",
+                    "type": "image/png",
+                    "sizes": "114x114"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--128x128-1bc0f11b.png",
+                    "type": "image/png",
+                    "sizes": "128x128"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--144x144-796f8b0f.png",
+                    "type": "image/png",
+                    "sizes": "144x144"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--152x152-990b1b4d.png",
+                    "type": "image/png",
+                    "sizes": "152x152"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--180x180-1833e656.png",
+                    "type": "image/png",
+                    "sizes": "180x180"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--192x192-c836c6d3.png",
+                    "type": "image/png",
+                    "sizes": "192x192"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--256x256-1f494ff4.png",
+                    "type": "image/png",
+                    "sizes": "256x256"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--384x384-587252d4.png",
+                    "type": "image/png",
+                    "sizes": "384x384"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--512x512-e2d92519.png",
+                    "type": "image/png",
+                    "sizes": "512x512"
+                },
+                {
+                    "src": "/pwa/shortcut-icon--1024x1024-e300471f.png",
+                    "type": "image/png",
+                    "sizes": "1024x1024"
+                }
+            ]
+        }
+    ]
+}
